@@ -1,0 +1,108 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: rgb(237, 235, 236);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background-color: #d91414;
+  padding: 24px;
+  text-align: center;
+}
+header h1 {
+  color: #ffffff;
+  margin: 0;
+}
+
+.navbar {
+  margin-top: 8px;
+}
+.navbar a {
+  font-weight: bold;
+}
+.navbar a:hover {
+  color: #007bff;
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+main {
+  flex: 1;
+  padding: 16px;
+}
+
+/* Mặc định cho Mobile đã được xử lý ở các file trên (1 cột, ẩn sidebar) */
+.sidebar {
+  display: none;
+}
+
+.card-grid {
+  grid-template-columns: 1fr;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
+  }
+  .card-grid {
+    grid-template-columns: 180px 1fr;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: 240px 1fr;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}/*# sourceMappingURL=main.css.map */

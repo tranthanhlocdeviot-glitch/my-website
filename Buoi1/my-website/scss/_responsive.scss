@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+/* Mặc định cho Mobile đã được xử lý ở các file trên (1 cột, ẩn sidebar) */
+.sidebar {
+    display: none; 
+}
+
+.card-grid {
+    grid-template-columns: 1fr;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing - 4px;
+}
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+    .sidebar {
+        display: block; // Hiện lại sidebar
+    }
+    
+    .card-grid {
+        grid-template-columns: 180px 1fr; // Thiết lập 2 cột 180px + phần còn lại
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); // 2 cột
+    }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: 240px 1fr; // Sidebar rộng hơn: 240px + phần còn lại
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); // Tự điền đầy
+    }
+}

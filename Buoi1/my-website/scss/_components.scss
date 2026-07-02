@@ -1,0 +1,50 @@
+@use 'variables' as *;
+// Mixin căn giữa bằng Flexbox (mặc định hàng ngang
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+// Mixin định dạng kiểu thẻ card
+@mixin card-style($bg: #fff, $radius: $radius) {
+    background-color: #ffffff;
+    padding: $spacing;
+    border-radius: $radius;
+    box-shadow: $shadow;
+}
+// Áp dụng @include vào các class thành phần
+.navbar {
+        @include flex-center(); // Sử dụng mixin flex-center cho menu ngang
+        background-color: $color-primary;
+        justify-content: space-between;
+        padding: $spacing * 2 ;
+    }
+.card {
+    @include card-style(); // Sử dụng mixin định dạng card
+    margin-bottom: $spacing * 3;
+}
+.hero {
+    @include flex-center(column); // Sử dụng mixin flex-center cho hero section
+    min-height: 30px;
+    background-color: $color-secondary;
+    color: #fff;
+    text-align: center;
+}
+.skill-card {
+    @include card-style($bg: #f9f9f9, $radius: $radius); // Sử dụng mixin định dạng card với màu nền khác
+    margin-bottom: $spacing * 2;
+}
+.btn-primary {
+    background-color: $color-primary;
+    color: #fff;
+    padding: $spacing / 2 $spacing;
+    border: none;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}
